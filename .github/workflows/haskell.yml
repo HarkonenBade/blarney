@@ -10,7 +10,8 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    env:
+      BLARNEY_ROOT: $PWD
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-haskell@v1
@@ -18,4 +19,4 @@ jobs:
         ghc-version: '8.8.2'
     - name: Build Examples
       run: |
-        BLARNY_ROOT=$PWD ./Test/test.sh
+        ./Test/test.sh
